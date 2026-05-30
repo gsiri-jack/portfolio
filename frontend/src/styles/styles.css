@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&family=Unbounded:wght@200..900&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  /* 1. FIXED: Correct color naming mapping for Tailwind v4 utility generation */
+  --color-brand-dark: #08080f;
+  --color-brand-light: #ffffff;
+  --color-primary: #291c7d;
+  --color-secondary: #5c43ff;
+
+  /* 2. FIXED: Re-mapping your Figma fonts so they work */
+  --font-syne: "Syne", sans-serif;
+  --font-unbounded: "Unbounded", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
