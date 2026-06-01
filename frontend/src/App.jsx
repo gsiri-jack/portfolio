@@ -1,12 +1,14 @@
 import React from "react";
 import Hero from "./components/hero/Hero";
 import "./styles/styles.css";
+import Quote from "./components/quote/quote";
 
 function App() {
   return (
-    <div className="bg-brand-dark">
+    <section className="bg-brand-dark ">
       <Hero />
-    </div>
+      <Quote />
+    </section>
   );
 }
 
