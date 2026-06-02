@@ -4,6 +4,7 @@ import "./styles/styles.css";
 import Quote from "./components/quote/quote";
 import Lenis from "lenis";
 import { useEffect } from "react";
+import About from "./components/about/about";
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
     <section className="bg-brand-dark ">
       <Hero />
       {/* <Quote /> */}
+      <About />
     </section>
   );
 }
