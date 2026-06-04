@@ -1,7 +1,7 @@
 import React from "react";
 
 function About() {
-  return <section className="min-h-dvh border border-amber-50"></section>;
+  return <section className="min-h-[800px] bg-amber-50 opacity-100"></section>;
 }
 
 export default About;

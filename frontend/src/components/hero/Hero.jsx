@@ -1,28 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 import "../../styles/styles.css";
 import "./hero.css";
-import { useRef } from "react";
-import { useScroll, useTransform } from "motion/react";
-import { motion } from "motion/react";
+import { easeInOut, motion, useScroll, useTransform } from "motion/react";
 import Quote from "../quote/quote";
 
 function Hero() {
   const heroRef = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end end"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], [0, 900]);
+
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 3]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
+
   return (
-    <section
-      id="hero-section"
-      className="h-[200dvh] md:h-[200dvh]  overflow-hidden "
-      ref={heroRef}
-    >
-      <div className="hero sticky top-0 ">
+    <section id="hero-section" className="h-[200dvh]" ref={heroRef}>
+      <div className="hero sticky top-0">
         <motion.div
           className="
             hero-blob
@@ -36,21 +32,34 @@ function Hero() {
         />
 
         <motion.div
-          className="hero-cont relative z-1 flex flex-col justify-center align-middle md:flex-row md:justify-evenly lg:justify-center h-[100dvh] md:h-[100dvh] "
-          style={{ scale, y, opacity }}
+          className="hero-cont relative z-1 flex h-[100dvh] flex-col justify-center md:flex-row md:justify-evenly lg:justify-center"
+          style={{}}
         >
-          <div className="context relative md:w-fit md:left-[50px]">
+          <motion.div
+            className="context relative md:w-fit md:left-[50px]"
+            initial={{
+              x: 50,
+            }}
+            whileInView={{
+              x: 0,
+              // opacity: 0,
+              transition: {
+                duration: 1,
+                delay: 0.1,
+              },
+            }}
+          >
             <div className="text1">
               <h1 className="text-[1.5rem] md:text-2.5xl lg:text-5xl">
                 my name is
               </h1>
 
               <p>
-                <span className="text-6xl md:text-[100px] lg:text-[150px] xl:text-[160px] font-extrabold font-unbounded">
+                <span className="font-unbounded text-6xl font-extrabold md:text-[100px] lg:text-[150px] xl:text-[160px]">
                   JACK
                 </span>
 
-                <span className="text-[1.5rem] md:text-2xl lg:text-4xl font-medium font-syne">
+                <span className="font-syne text-[1.5rem] font-medium md:text-2xl lg:text-4xl">
                   {"\u00a0"}, I'm a
                 </span>
               </p>
@@ -65,14 +74,36 @@ function Hero() {
                 <span className="text-secondary">Developer in Test</span>
               </p>
             </div>
-          </div>
+          </motion.div>
 
           <div className="hero-potrait flex flex-col justify-center pt-10 md:pt-0">
-            <motion.div className="hpotrait w-90 sm:w-104 md:w-[45vw] md:max-w-[600px] lg:w-[50vw] lg:max-w-[700px] h-auto "></motion.div>
+            <motion.div
+              className="hpotrait w-90 h-auto sm:w-104 md:w-[45vw] md:max-w-[600px] lg:w-[50vw] lg:max-w-[700px]"
+              initial={{
+                x: -50,
+              }}
+              whileInView={{
+                x: 0,
+                // opacity: 0,
+                transition: {
+                  duration: 1,
+                  delay: 0.1,
+                },
+              }}
+              whileHover={{
+                scale: 1.05,
+                transition: {
+                  duration: 0.5,
+                  ease: easeInOut,
+                },
+              }}
+              whileFocus={{
+                scale: 1.05,
+              }}
+            />
           </div>
         </motion.div>
       </div>
-      <Quote />
     </section>
   );
 }

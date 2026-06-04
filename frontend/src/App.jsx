@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     // Configured parameters optimized to normalize behavior between desktop and touchscreens
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.3,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       syncTouch: true, // Crucial parameter to sync hardware touch events with the virtual scroll frame
@@ -29,8 +29,10 @@ function App() {
   return (
     <section className="bg-brand-dark ">
       <Hero />
-      {/* <Quote /> */}
+      <Quote />
+      <div className="min-h-[60dvh] md:min-h-[104dvh] bg-amber-400 opacity-20"></div>
       <About />
+      <div className="min-h-[100vh] md:min-h-[104dvh] bg-amber-400 opacity-20"></div>
     </section>
   );
 }
