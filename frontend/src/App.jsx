@@ -1,10 +1,11 @@
 import React from "react";
 import Hero from "./components/hero/Hero";
 import "./styles/styles.css";
-import Quote from "./components/quote/quote";
+import Quote from "./components/quote";
 import Lenis from "lenis";
 import { useEffect } from "react";
 import About from "./components/about/about";
+import Skills from "./components/skills";
 
 function App() {
   useEffect(() => {
@@ -30,9 +31,9 @@ function App() {
     <section className="bg-brand-dark ">
       <Hero />
       <Quote />
-      <div className="min-h-[60dvh] md:min-h-[104dvh] bg-amber-400 opacity-20"></div>
       <About />
-      <div className="min-h-[100vh] md:min-h-[104dvh] bg-amber-400 opacity-20"></div>
+      <Skills />
+      <div className="bg-white">footer</div>
     </section>
   );
 }

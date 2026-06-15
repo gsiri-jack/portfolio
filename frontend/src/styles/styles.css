@@ -9,6 +9,7 @@
   --color-brand-light: #ffffff;
   --color-primary: #291c7d;
   --color-secondary: #5c43ff;
+  --color-primaryOP1: rgba(92, 67, 255, 0.15);
 
   /* 2. FIXED: Re-mapping your Figma fonts so they work */
   --font-syne: "Syne", sans-serif;

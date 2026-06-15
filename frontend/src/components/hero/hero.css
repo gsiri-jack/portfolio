@@ -29,7 +29,6 @@
 }
 .context .text1 h1 {
   color: #fff;
-  text-align: center;
   font-family: Syne;
   font-style: normal;
   font-weight: 600;
@@ -44,18 +43,13 @@
 }
 
 .context .text1 p {
-  color: #fff;
-  text-align: center;
-  font-family: Syne;
-
   font-style: normal;
-  font-weight: 600;
   line-height: normal;
 }
 
 .hpotrait {
   aspect-ratio: 64/59;
-  background-image: url("../../assets/image.png");
+  background-image: url("../../assets/hero.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

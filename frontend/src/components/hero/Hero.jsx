@@ -2,7 +2,9 @@ import React, { useRef } from "react";
 import "../../styles/styles.css";
 import "./hero.css";
 import { easeInOut, motion, useScroll, useTransform } from "motion/react";
-import Quote from "../quote/quote";
+import { BiSolidQuoteLeft, BiSolidQuoteRight } from "react-icons/bi";
+import { BsDash, BsCursorText } from "react-icons/bs";
+import Typewriter from "../typewriter";
 
 function Hero() {
   const heroRef = useRef(null);
@@ -14,10 +16,14 @@ function Hero() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
-
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.6]);
+  const quotes = [
+    "Building Trust through Every Test",
+    "Quality is not an act, it is a habit",
+    "Automate the predictable, test the unpredictable",
+  ];
   return (
-    <section id="hero-section" className="h-[200dvh]" ref={heroRef}>
+    <section id="hero-section" className="h-[110dvh]" ref={heroRef}>
       <div className="hero sticky top-0">
         <motion.div
           className="
@@ -32,25 +38,32 @@ function Hero() {
         />
 
         <motion.div
-          className="hero-cont relative z-1 flex h-[100dvh] flex-col justify-center md:flex-row md:justify-evenly lg:justify-center"
+          className="hero-cont relative z-1 flex min-h-screen flex-col justify-center md:flex-row md:justify-evenly lg:justify-center"
           style={{}}
         >
           <motion.div
             className="context relative md:w-fit md:left-[50px]"
             initial={{
-              x: 50,
+              x: 70,
             }}
             whileInView={{
               x: 0,
               // opacity: 0,
               transition: {
-                duration: 1,
-                delay: 0.1,
+                duration: 0.5,
+                delay: 0.3,
               },
+            }}
+            viewport={{
+              once: true,
             }}
           >
             <div className="text1">
-              <h1 className="text-[1.5rem] md:text-2.5xl lg:text-5xl">
+              <div className="h-fit font-code border-2 border-primary w-fit flex items-center flex-row rounded-2xl mb-2.5 p-1.5 opacity-80 text-[12px] md:text-xl">
+                <p className="text-primary">~/</p>
+                <p className="text-secondary text-left">Hello world !</p>
+              </div>
+              <h1 className="text-[1.3rem] md:text-2xl lg:text-4xl text-left  font-poppins font-normal">
                 my name is
               </h1>
 
@@ -80,14 +93,14 @@ function Hero() {
             <motion.div
               className="hpotrait w-90 h-auto sm:w-104 md:w-[45vw] md:max-w-[600px] lg:w-[50vw] lg:max-w-[700px]"
               initial={{
-                x: -50,
+                x: -70,
               }}
               whileInView={{
                 x: 0,
                 // opacity: 0,
                 transition: {
-                  duration: 1,
-                  delay: 0.1,
+                  duration: 0.5,
+                  delay: 0.3,
                 },
               }}
               whileHover={{
@@ -101,6 +114,10 @@ function Hero() {
                 scale: 1.05,
               }}
             />
+          </div>
+          <div className="md:hidden border-l-2 border-indigo-400 flex items-center justify-center ml-auto mr-auto  w-[70%] mt-5 absolute bottom-16 left-10 right-auto z-40 text-wrap">
+            <Typewriter texts={quotes[0]} delay={4500} loop={true} />
+            <div className="relative -top-4"></div>
           </div>
         </motion.div>
       </div>
