@@ -6,6 +6,10 @@ import aboutImgMob from "../../assets/aboutpic2.png";
 function About() {
   return (
     <section className="min-h-[900px] md:min-h-[850px] h-screen w-screen opacity-100 pt-8 p-1 md:pt-[10vh] mt-[10vh] md:mt-[23vh]">
+      {/* TODO: Modify the Features content
+                Implement the button for the download CV
+                Implement the Reveal Animation based on the Scroll
+      */}
       {/* heading */}
       <div className="mr-3.5 md:mr-9 text-right mb-3.5 md:mb-9">
         <p className="tag font-code text-neutral-500 mb-2 ">~/ sid001</p>

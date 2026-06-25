@@ -4,14 +4,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* 1. FIXED: Correct color naming mapping for Tailwind v4 utility generation */
   --color-brand-dark: #08080f;
   --color-brand-light: #ffffff;
   --color-primary: #291c7d;
   --color-secondary: #5c43ff;
   --color-primaryOP1: rgba(92, 67, 255, 0.15);
+  --color-pillGreen: #39ff7a;
 
-  /* 2. FIXED: Re-mapping your Figma fonts so they work */
   --font-syne: "Syne", sans-serif;
   --font-unbounded: "Unbounded", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
@@ -20,7 +19,30 @@
   --font-code: "Google Sans Code";
 
   --shadow-sm: 25px 25px 25px 25px rgba(8, 8, 15, 0.9);
+
+  /* Marquee keyframes */
+  --animate-scroll-left: scroll-left 30s linear infinite;
+  --animate-scroll-right: scroll-right 24s linear infinite;
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 }
+
 .hero-gradient {
   background: linear-gradient(
     to bottom,
@@ -31,4 +53,8 @@
     rgba(8, 8, 15, 0) 100%
   );
   backdrop-filter: blur(2px);
+}
+
+body {
+  overflow-x: hidden;
 }

@@ -1,39 +1,51 @@
-import React from "react";
+// App.jsx
+import React, { useEffect } from "react";
 import Hero from "./components/hero/Hero";
 import "./styles/styles.css";
 import Quote from "./components/quote";
 import Lenis from "lenis";
-import { useEffect } from "react";
 import About from "./components/about/about";
 import Skills from "./components/skills";
+import Work from "./components/Work";
+import TrustIndicators from "./components/trustIndicators";
 
 function App() {
   useEffect(() => {
-    // Configured parameters optimized to normalize behavior between desktop and touchscreens
+    const isTouchDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    // Lenis is a desktop wheel-smoothing enhancement only.
+    // Mobile already has smooth native touch scrolling —
+    // Lenis's RAF-driven scroll hijack is unreliable on mobile
+    // (stale scroll-limit on load, address-bar collapse, etc.)
+    if (isTouchDevice) return;
+
     const lenis = new Lenis({
-      duration: 1.3,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      syncTouch: true, // Crucial parameter to sync hardware touch events with the virtual scroll frame
     });
 
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
+    rafId = requestAnimationFrame(raf);
 
-    requestAnimationFrame(raf);
-
-    return () => lenis.destroy();
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
   }, []);
 
   return (
-    <section className="bg-brand-dark ">
+    <section className="bg-brand-dark">
       <Hero />
       <Quote />
       <About />
       <Skills />
-      <div className="bg-white">footer</div>
+      <Work />
+      <TrustIndicators />
+      <div className="bg-white h-50 mb-5">footer</div>
     </section>
   );
 }

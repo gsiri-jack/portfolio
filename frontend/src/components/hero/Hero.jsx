@@ -4,7 +4,7 @@ import "./hero.css";
 import { easeInOut, motion, useScroll, useTransform } from "motion/react";
 import { BiSolidQuoteLeft, BiSolidQuoteRight } from "react-icons/bi";
 import { BsDash, BsCursorText } from "react-icons/bs";
-import Typewriter from "../typewriter";
+import Typewriter from "../minComponents/heroTypeWriter.jsx";
 
 function Hero() {
   const heroRef = useRef(null);
@@ -23,7 +23,11 @@ function Hero() {
     "Automate the predictable, test the unpredictable",
   ];
   return (
-    <section id="hero-section" className="h-[110dvh]" ref={heroRef}>
+    <section
+      id="hero-section"
+      className="h-[110vh] overflow-hidden"
+      ref={heroRef}
+    >
       <div className="hero sticky top-0">
         <motion.div
           className="
@@ -37,10 +41,7 @@ function Hero() {
           style={{ opacity }}
         />
 
-        <motion.div
-          className="hero-cont relative z-1 flex min-h-screen flex-col justify-center md:flex-row md:justify-evenly lg:justify-center"
-          style={{}}
-        >
+        <div className="hero-cont relative z-1 flex min-h-screen flex-col justify-center md:flex-row md:justify-evenly lg:justify-center">
           <motion.div
             className="context relative md:w-fit md:left-[50px]"
             initial={{
@@ -119,7 +120,7 @@ function Hero() {
             <Typewriter texts={quotes[0]} delay={4500} loop={true} />
             <div className="relative -top-4"></div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -23,7 +23,7 @@ function Quote() {
   });
 
   return (
-    <section className="relative z-20 h-[150dvh] min-h-[1000px] md:h-[200dvh]">
+    <section className="relative z-20 h-[150vh] min-h-[1000px] md:h-[200vh]">
       <div className="flex h-full flex-col  " ref={heroRef}>
         <div className="sticky top-0 h-screen  ">
           <div className="h-10 mt-[5vh] md:mt-[10vh] flex flex-row  items-center justify-end">
