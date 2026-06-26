@@ -13,6 +13,8 @@ import {
   useMotionValueEvent,
   useTransform,
 } from "motion/react";
+import AppliedAiIndicator from "./minComponents/aiIndicator";
+import QualityPipelineIndicator from "./minComponents/pipelineIndicator";
 
 function TrustIndicators() {
   const contRef = useRef(null);
@@ -57,8 +59,8 @@ function TrustIndicators() {
           <EducationIndicator />
           <CertificatesIndicator />
           <TestEngneeringIndicator />
-          <AiLearningPathIndicator />
-          <QaMindsetIndicator />
+          <AppliedAiIndicator />
+          <QualityPipelineIndicator />
         </div>
       </div>
     </section>
